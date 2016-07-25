@@ -1,4 +1,4 @@
-package com.leandro.submarine.submarine;
+package com.leandro.submarine;
 
 public class Coordinate {
 
