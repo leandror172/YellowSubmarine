@@ -1,12 +1,6 @@
 package com.leandro.submarine.interfaces;
 
-import java.util.function.Function;
-
-import com.leandro.submarine.Position;
-import com.leandro.submarine.enums.CommandCatalog;
-import com.leandro.submarine.exception.InvalidCommandException;
-
-public interface Command {
+public interface Command<T> {
 
     /**
      * This method returns the character corresponding to this command. Possible values are
@@ -28,23 +22,6 @@ public interface Command {
      * @param position
      * @return Position
      */
-    public Position execute(Position position);
-
-    /**
-     * This Function maps an input Character to an output Command. If the character cannot be mapped
-     * to a command, a runtime exception is thrown
-     */
-    Function<Character, Command> characterToCommand = new Function<Character, Command>() {
-
-        public Command apply(Character c) {
-            Command command = null;
-            try {
-                command = CommandCatalog.getCommandForValue(c);
-            } catch (InvalidCommandException e) {
-                throw new RuntimeException(e);
-            }
-            return command;
-        }
-    };
+    public T execute(T t);
 
 }

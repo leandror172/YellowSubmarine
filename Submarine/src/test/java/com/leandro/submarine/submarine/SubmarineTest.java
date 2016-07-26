@@ -3,7 +3,7 @@
  */
 package com.leandro.submarine.submarine;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -44,7 +44,7 @@ public class SubmarineTest {
 
     @Test
     public void SubmarineReceivesNoOrderExecutesNoMovement() {
-        submarine.receiveOrders(moveOrders);
+        submarine.receiveCommands(moveOrders);
         submarine.executeOrders();
         assertEquals(STARTING_POSITION, submarine.getCurrentPosition().toString());
     }
@@ -53,7 +53,7 @@ public class SubmarineTest {
     public void SubmarineReceivesInvalidOrderExecutesNoMovement() throws Throwable {
         moveOrders.add('A');
         try {
-            submarine.receiveOrders(moveOrders);
+            submarine.receiveCommands(moveOrders);
         } catch (Exception e) {
             throw e.getCause();
         }
@@ -62,7 +62,7 @@ public class SubmarineTest {
     @Test
     public void SubmarineReceivesTurnRightOrderAndFacesEast() {
         moveOrders.add('R');
-        submarine.receiveOrders(moveOrders);
+        submarine.receiveCommands(moveOrders);
         submarine.executeOrders();
         assertEquals("0 0 0 LESTE", submarine.getCurrentPosition().toString());
     }
@@ -70,7 +70,7 @@ public class SubmarineTest {
     @Test
     public void SubmarineReceivesTurnLeftOrderAndFacesWest() {
         moveOrders.add('L');
-        submarine.receiveOrders(moveOrders);
+        submarine.receiveCommands(moveOrders);
         submarine.executeOrders();
         assertEquals("0 0 0 OESTE", submarine.getCurrentPosition().toString());
     }
@@ -78,7 +78,7 @@ public class SubmarineTest {
     @Test
     public void SubmarineReceivesTurnLeftTurnLeftOrdersAndFacesSouth() {
         moveOrders = Arrays.asList('L', 'L');
-        submarine.receiveOrders(moveOrders);
+        submarine.receiveCommands(moveOrders);
         submarine.executeOrders();
         assertEquals("0 0 0 SUL", submarine.getCurrentPosition().toString());
     }
@@ -86,7 +86,7 @@ public class SubmarineTest {
     @Test
     public void SubmarineReceivesTurnRightTurnRightOrdersAndFacesSouth() {
         moveOrders = Arrays.asList('R', 'R');
-        submarine.receiveOrders(moveOrders);
+        submarine.receiveCommands(moveOrders);
         submarine.executeOrders();
         assertEquals("0 0 0 SUL", submarine.getCurrentPosition().toString());
     }
@@ -94,7 +94,7 @@ public class SubmarineTest {
     @Test
     public void SubmarineReceivesTurnRightTurnLeftOrdersAndFacesNorth() {
         moveOrders = Arrays.asList('R', 'L');
-        submarine.receiveOrders(moveOrders);
+        submarine.receiveCommands(moveOrders);
         submarine.executeOrders();
         assertEquals("0 0 0 NORTE", submarine.getCurrentPosition().toString());
     }
@@ -102,8 +102,17 @@ public class SubmarineTest {
     @Test
     public void SubmarineReceivesTurnRightTurnRightTurnRightTurnRightOrdersAndFacesNorth() {
         moveOrders = Arrays.asList('R', 'R', 'R', 'R');
-        submarine.receiveOrders(moveOrders);
+        submarine.receiveCommands(moveOrders);
         submarine.executeOrders();
         assertEquals("0 0 0 NORTE", submarine.getCurrentPosition().toString());
+    }
+    
+    @Test
+    public void SubmarineReceivesMoveOrderAndMovesXAxis() {
+        moveOrders.add('M');
+        submarine.receiveCommands(moveOrders);
+        submarine.executeOrders();
+        assertEquals("0 1 0 NORTE", submarine.getCurrentPosition()
+                                             .toString());
     }
 }

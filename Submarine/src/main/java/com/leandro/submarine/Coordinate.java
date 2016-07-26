@@ -1,6 +1,8 @@
 package com.leandro.submarine;
 
-public class Coordinate {
+import com.leandro.submarine.interfaces.CoordinateInterface;
+
+public class Coordinate implements CoordinateInterface {
 
     private Long value;
 
@@ -18,12 +20,23 @@ public class Coordinate {
     }
 
     /**
-     * This method sets the value that defines this coordinate
-     * 
-     * @param value
+     * This method increments the value that represents this coordinate,
+     * indicating a movement towards the positive side of this axis
      */
-    public void setValue(Long value) {
-        this.value = value;
+    public void incrementValue() {
+        value++;
+    }
+
+    /**
+     * This method decreases the value that represents this coordinate,
+     * indicating a movement towards the negative side of this axis
+     */
+    public void subtractValue() {
+        value--;
+    }
+
+    public String toString() {
+        return String.valueOf(value);
     }
 
 }

@@ -14,13 +14,15 @@ public interface Direction {
      * 
      * @return T extends Direction
      */
-    public <T extends Direction> T getTurnRightDirection();
+    public <T extends Direction> T turnRightDirection();
 
     /**
      * This method returns the direction that corresponds to the left direction of this class
      * 
      * @return T extends Direction
      */
-    public <T extends Direction> T  getTurnLeftDirection();
+    public <T extends Direction> T  turnLeftDirection();
+
+    // public void getAxis();
 
 }

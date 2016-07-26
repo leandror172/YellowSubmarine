@@ -3,6 +3,7 @@ package com.leandro.submarine.enums;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import com.leandro.submarine.commands.impl.MoveCommand;
 import com.leandro.submarine.commands.impl.TurnLeftCommand;
 import com.leandro.submarine.commands.impl.TurnRightCommand;
 import com.leandro.submarine.exception.InvalidCommandException;
@@ -11,7 +12,8 @@ import com.leandro.submarine.interfaces.Command;
 public enum CommandCatalog {
 
     TURN_RIGHT_COMMAND('R', new TurnRightCommand()),
-    TURN_LEFT_COMMAND('L', new TurnLeftCommand());
+    TURN_LEFT_COMMAND('L', new TurnLeftCommand()),
+    MOVE_COMMAND('M', new MoveCommand());
 
     public Character value;
     public Command commandClass;

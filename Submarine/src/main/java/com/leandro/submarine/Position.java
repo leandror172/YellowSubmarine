@@ -5,12 +5,13 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import com.leandro.submarine.directions.impl.NorthDirection;
+import com.leandro.submarine.interfaces.CoordinateInterface;
 import com.leandro.submarine.interfaces.Direction;
 
 public class Position {
 
     private static final String COORDINATES_SEPARATOR = " ";
-    private Coordinate xAxis;
+    private CoordinateInterface xAxis;
     private Coordinate yAxis;
     private Coordinate zAxis;
     private Direction direction;
@@ -22,27 +23,27 @@ public class Position {
         direction = new NorthDirection();
     }
 
-    public Coordinate getxAxis() {
+    public CoordinateInterface getXAxis() {
         return xAxis;
     }
 
-    public void setxAxis(Coordinate xAxis) {
+    public void setXAxis(Coordinate xAxis) {
         this.xAxis = xAxis;
     }
 
-    public Coordinate getyAxis() {
+    public Coordinate getYAxis() {
         return yAxis;
     }
 
-    public void setyAxis(Coordinate yAxis) {
+    public void setYAxis(Coordinate yAxis) {
         this.yAxis = yAxis;
     }
 
-    public Coordinate getzAxis() {
+    public Coordinate getZAxis() {
         return zAxis;
     }
 
-    public void setzAxis(Coordinate zAxis) {
+    public void setZAxis(Coordinate zAxis) {
         this.zAxis = zAxis;
     }
 
@@ -66,7 +67,7 @@ public class Position {
      * @return Stream<? extends Object>
      */
     public Stream<? extends Object> stream() {
-        return Arrays.asList(xAxis.getValue(),
+        return Arrays.asList(xAxis,
                             yAxis.getValue(),
                             zAxis.getValue(),
                             direction.getValue())

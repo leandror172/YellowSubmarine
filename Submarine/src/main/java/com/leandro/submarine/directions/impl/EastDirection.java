@@ -5,8 +5,6 @@ import com.leandro.submarine.interfaces.Direction;
 public class EastDirection implements Direction {
 
     private static final String value = "LESTE";
-    private static SouthDirection turnRightDirection = new SouthDirection();
-    private static NorthDirection turnLeftDirection = new NorthDirection();
 
     @Override
     public String getValue() {
@@ -15,14 +13,14 @@ public class EastDirection implements Direction {
 
     @SuppressWarnings("unchecked")
     @Override
-    public SouthDirection getTurnRightDirection() {
-        return turnRightDirection;
+    public SouthDirection turnRightDirection() {
+        return new SouthDirection();
     }
 
     @SuppressWarnings("unchecked")
     @Override
-    public NorthDirection getTurnLeftDirection() {
-        return turnLeftDirection;
+    public NorthDirection turnLeftDirection() {
+        return new NorthDirection();
     }
 
 }
