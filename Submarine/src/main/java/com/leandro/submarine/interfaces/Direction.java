@@ -1,6 +1,6 @@
 package com.leandro.submarine.interfaces;
 
-public interface Direction {
+public interface Direction{
 
     /**
      * This method returns the value that describers this direction
@@ -21,8 +21,8 @@ public interface Direction {
      * 
      * @return T extends Direction
      */
-    public <T extends Direction> T  turnLeftDirection();
+    public <T extends Direction> T turnLeftDirection();
 
-    // public void getAxis();
+    public void moveInDirection(Position p);
 
 }

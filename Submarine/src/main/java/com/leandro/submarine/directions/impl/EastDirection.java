@@ -1,6 +1,7 @@
 package com.leandro.submarine.directions.impl;
 
 import com.leandro.submarine.interfaces.Direction;
+import com.leandro.submarine.interfaces.Position;
 
 public class EastDirection implements Direction {
 
@@ -21,6 +22,12 @@ public class EastDirection implements Direction {
     @Override
     public NorthDirection turnLeftDirection() {
         return new NorthDirection();
+    }
+
+    @Override
+    public void moveInDirection(Position p) {
+        // TODO Auto-generated method stub
+        
     }
 
 }

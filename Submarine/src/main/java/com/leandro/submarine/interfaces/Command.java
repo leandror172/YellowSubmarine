@@ -1,6 +1,13 @@
 package com.leandro.submarine.interfaces;
 
-public interface Command<T> {
+/**
+ * This interface represents a single command to be issued to the submarine
+ * 
+ * @author leandro.c.rocha
+ *
+ * @param <T>
+ */
+public interface Command {
 
     /**
      * This method returns the character corresponding to this command. Possible values are
@@ -14,14 +21,14 @@ public interface Command<T> {
      * 
      * @return Character
      */
-//    public Character getValue();
+    // public Character getValue();
 
     /**
      * This method executes the current command into a position, and returns the changed position
      * 
      * @param position
-     * @return Position
+     * @return SpatialPosition
      */
-    public T execute(T t);
+    public Position execute(Position p);
 
 }

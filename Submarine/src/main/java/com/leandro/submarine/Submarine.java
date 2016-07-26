@@ -7,7 +7,8 @@ import java.util.stream.Collectors;
 import com.leandro.submarine.enums.CommandCatalog;
 import com.leandro.submarine.exception.InvalidCommandException;
 import com.leandro.submarine.interfaces.Command;
-import com.leandro.submarine.interfaces.CommandProcessor;
+import com.leandro.submarine.interfaces.CommandReader;
+import com.leandro.submarine.interfaces.Position;
 
 /**
  * Class used to describe the submarine
@@ -20,7 +21,7 @@ public class Submarine {
     private List<Command> commandList;
 
     public Submarine() {
-        currentPosition = new Position();
+        currentPosition = new SpatialPosition();
         commandList = new ArrayList<>();
     }
 
@@ -37,9 +38,10 @@ public class Submarine {
      * 
      * @param commandList
      */
-    public void receiveCommands(List<Character> commandList) {
-        // System.out.println("moveOrders: " + moveOrders);
-        this.commandList = commandList.stream()
+    public void receiveCommands(String commandList) {
+        // System.out.println("commandList: " + commandList);
+        this.commandList = commandList.chars()
+                                      .mapToObj(c -> (char) c)
                                       .map(c -> characterToCommand.apply(c))
                                       .collect(Collectors.<Command> toList());
     }
@@ -48,7 +50,7 @@ public class Submarine {
      * This Function maps an input Character to an output Command. If the
      * character cannot be mapped to a command, a runtime exception is thrown
      */
-    CommandProcessor<Character, Command> characterToCommand = c -> {
+    CommandReader<Character, Command> characterToCommand = c -> {
         Command command = null;
         try {
             command = CommandCatalog.getCommandForValue(c);
@@ -62,7 +64,7 @@ public class Submarine {
      * This method takes the current list of orders and then executes them,
      * changing the submarine's current position according to them
      */
-    public void executeOrders() {
+    public void executeCommands() {
         // System.out.println("commandList: " + commandList);
         commandList.stream()
                    .forEach(c -> c.execute(currentPosition));

@@ -1,12 +1,12 @@
-package com.leandro.submarine;
+package com.leandro.submarine.coordinates;
 
-import com.leandro.submarine.interfaces.CoordinateInterface;
+import com.leandro.submarine.interfaces.Coordinate;
 
-public class Coordinate implements CoordinateInterface {
+public class YAxisCoordinate implements Coordinate {
 
     private Long value;
 
-    public Coordinate() {
+    public YAxisCoordinate() {
         value = 0L;
     }
 
@@ -38,5 +38,6 @@ public class Coordinate implements CoordinateInterface {
     public String toString() {
         return String.valueOf(value);
     }
+
 
 }
