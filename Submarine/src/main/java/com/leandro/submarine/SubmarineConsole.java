@@ -30,13 +30,13 @@ public class SubmarineConsole {
         String input = in.readLine();
         try {
             sub.receiveCommands(input);
+            sub.executeCommands();
+            System.out.println("Executing commands...");
+            System.out.println("The submarine's current position is (" + sub.getCurrentPosition() + ")");
         } catch (RuntimeException e) {
             System.out.println("There was a problem processing your commands: " + e.getCause().getMessage());
             System.out.println("Your submarine has been eaten by a grue.");
         }
-        sub.executeCommands();
-        System.out.println("Executing commands...");
-        System.out.println("The submarine's current position is (" + sub.getCurrentPosition() + ")");
         System.out.println("Do you wish to execute more commands? (Y to execute, anything else to quit)");
         input = in.readLine();
         

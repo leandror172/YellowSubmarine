@@ -58,7 +58,7 @@ public class SpatialPosition implements Position {
         return stream().map(p -> p.toString())
                        .collect(Collectors.joining(COORDINATES_SEPARATOR));
     }
- 
+
     @Override
     public Stream<? extends Object> stream() {
         return Arrays.asList(xAxis, yAxis, zAxis, direction.getValue())
