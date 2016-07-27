@@ -1,8 +1,5 @@
 package com.leandro.submarine;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -71,7 +68,7 @@ public class Submarine {
     public void executeCommands() {
         // System.out.println("commandList: " + commandList);
         commandList.stream()
-                   .forEach(c -> c.execute(currentPosition));
+                   .forEach(c -> c.getCommandConsumer().accept(currentPosition));
         System.out.println("currentPosition: " + currentPosition);
     }
 

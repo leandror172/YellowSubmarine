@@ -1,5 +1,7 @@
 package com.leandro.submarine.interfaces;
 
+import java.util.function.Consumer;
+
 /**
  * This interface represents a single command to be issued to the submarine
  * 
@@ -10,11 +12,10 @@ package com.leandro.submarine.interfaces;
 public interface Command {
 
     /**
-     * This method executes the current command into a position, and returns the
-     * changed position
+     * This method returns a Consumer of Position. This consumer must implement a lambda that takes
+     * Position and call the equivalent method in it
      * 
-     * @param position
-     * @return Position
+     * @return Consumer<Position>
      */
-    public Position execute(Position p);
+    public Consumer<Position> getCommandConsumer();
 }

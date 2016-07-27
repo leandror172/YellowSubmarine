@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import com.leandro.submarine.directions.impl.NorthDirection;
+import com.leandro.submarine.enums.directions.NorthDirection;
 import com.leandro.submarine.interfaces.Coordinate;
 import com.leandro.submarine.interfaces.Direction;
 import com.leandro.submarine.interfaces.Position;
@@ -21,7 +21,7 @@ public class SpatialPosition implements Position {
         xAxis = new SpatialCoordinate();
         yAxis = new SpatialCoordinate();
         zAxis = new SpatialCoordinate();
-        direction = new NorthDirection();
+        direction = NorthDirection.INSTANCE;
     }
 
     public Coordinate getXAxis() {
@@ -58,7 +58,7 @@ public class SpatialPosition implements Position {
         return stream().map(p -> p.toString())
                        .collect(Collectors.joining(COORDINATES_SEPARATOR));
     }
-
+ 
     @Override
     public Stream<? extends Object> stream() {
         return Arrays.asList(xAxis, yAxis, zAxis, direction.getValue())
@@ -67,7 +67,7 @@ public class SpatialPosition implements Position {
 
     @Override
     public void moveInDirection() {
-        direction.moveInDirection(this);
+        direction.getDirectionConsumer().accept(this);
     }
 
     @Override

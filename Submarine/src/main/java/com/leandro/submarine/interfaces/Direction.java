@@ -1,6 +1,8 @@
 package com.leandro.submarine.interfaces;
 
-public interface Direction{
+import java.util.function.Consumer;
+
+public interface Direction {
 
     /**
      * This method returns the value that describers this direction
@@ -23,6 +25,12 @@ public interface Direction{
      */
     public <T extends Direction> T turnLeftDirection();
 
-    public void moveInDirection(Position p);
+    /**
+     * This method returns a consumer of Position that changes it's values based on the Direction
+     * that implements this interface
+     * 
+     * @param p
+     */
+    public Consumer<Position> getDirectionConsumer();
 
 }

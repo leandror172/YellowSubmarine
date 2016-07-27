@@ -1,11 +1,9 @@
 package com.leandro.submarine.submarine;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
-
-import com.leandro.submarine.enums.CommandCatalog;
 
 public class SubmarineBuscapeTest extends SubmarineTest {
 

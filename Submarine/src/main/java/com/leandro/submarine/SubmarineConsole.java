@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import javax.xml.stream.events.Characters;
-
 import com.google.common.base.Strings;
 
 public class SubmarineConsole {
