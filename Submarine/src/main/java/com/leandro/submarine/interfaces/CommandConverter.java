@@ -1,7 +1,7 @@
 package com.leandro.submarine.interfaces;
 
 @FunctionalInterface
-public interface CommandConsumer<T, D> {
+public interface CommandConverter<T, D> {
 
     void apply(T t, D d);
 }

@@ -2,11 +2,11 @@ package com.leandro.submarine.coordinates;
 
 import com.leandro.submarine.interfaces.Coordinate;
 
-public class YAxisCoordinate implements Coordinate {
+public class SpatialCoordinate implements Coordinate {
 
     private Long value;
 
-    public YAxisCoordinate() {
+    public SpatialCoordinate() {
         value = 0L;
     }
 
@@ -31,13 +31,12 @@ public class YAxisCoordinate implements Coordinate {
      * This method decreases the value that represents this coordinate,
      * indicating a movement towards the negative side of this axis
      */
-    public void subtractValue() {
+    public void decrementValue() {
         value--;
     }
 
     public String toString() {
         return String.valueOf(value);
     }
-
 
 }

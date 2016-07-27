@@ -17,7 +17,7 @@ public class SouthDirection implements Direction {
     public WestDirection turnRightDirection() {
         return new WestDirection();
     }
-    
+
     @SuppressWarnings("unchecked")
     @Override
     public EastDirection turnLeftDirection() {
@@ -26,7 +26,7 @@ public class SouthDirection implements Direction {
 
     @Override
     public void moveInDirection(Position p) {
-        // TODO Auto-generated method stub
-        
+        p.getYAxis()
+         .decrementValue();
     }
 }

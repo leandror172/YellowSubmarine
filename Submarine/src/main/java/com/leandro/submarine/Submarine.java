@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.leandro.submarine.coordinates.SpatialPosition;
 import com.leandro.submarine.enums.CommandCatalog;
 import com.leandro.submarine.exception.InvalidCommandException;
 import com.leandro.submarine.interfaces.Command;

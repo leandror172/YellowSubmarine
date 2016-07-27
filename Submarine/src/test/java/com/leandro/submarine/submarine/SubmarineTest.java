@@ -1,14 +1,10 @@
 package com.leandro.submarine.submarine;
 
-import java.util.Arrays;
-import java.util.List;
-
 import org.junit.Before;
 
-import com.google.common.primitives.Chars;
 import com.leandro.submarine.Submarine;
 
-public class SubmarineTest {
+public abstract class SubmarineTest {
 
     protected static final String STARTING_POSITION = "0 0 0 NORTE";
     protected String commandList;
@@ -18,14 +14,24 @@ public class SubmarineTest {
         super();
     }
 
+    /**
+     * This method initializes fields before each test
+     * 
+     * @throws Exception
+     */
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         commandList = new String();
         submarine = new Submarine();
     }
-    
-    protected void createCommandList(char... characters){
-        Arrays.asList(characters).stream().
-        commandList = Chars.asList(characters).toString();
+
+    /**
+     * This method is used to receive an array of characters and create a string
+     * containing all characters, to be used as commands
+     * 
+     * @param characters
+     */
+    protected void createCommandList(char... characters) {
+        commandList = new String(characters);
     }
 }

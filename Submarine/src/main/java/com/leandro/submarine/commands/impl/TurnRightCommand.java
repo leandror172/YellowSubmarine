@@ -10,5 +10,4 @@ public class TurnRightCommand implements Command {
         p.turnRight();
         return p;
     }
-
 }

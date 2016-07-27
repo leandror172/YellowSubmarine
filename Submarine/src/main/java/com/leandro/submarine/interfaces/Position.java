@@ -29,10 +29,29 @@ public interface Position {
      */
     public Direction getDirection();
     
+    /**
+     * This method moves a position in it's current facing Direction
+     */
     public void moveInDirection();
     
+    /**
+     * This method returns a Coordinate representing the X axis
+     * 
+     * @return Coordinate
+     */
     public Coordinate getXAxis();
+
+    /**
+     * This method returns a Coordinate representing the X axis
+     * 
+     * @return Coordinate
+     */
     public Coordinate getYAxis();
 
+    /**
+     * This method returns a Coordinate representing the X axis
+     * 
+     * @return Coordinate
+     */
     public Coordinate getZAxis();
 }

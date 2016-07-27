@@ -11,7 +11,7 @@ public interface Coordinate {
      * This method decreases the value that represents this coordinate,
      * indicating a movement towards the negative side of this axis
      */
-    public void subtractValue();
+    public void decrementValue();
 
 
     public String toString();

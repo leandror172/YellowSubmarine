@@ -10,5 +10,4 @@ public class MoveCommand implements MovementCommand {
         p.moveInDirection();
         return p;
     }
-
 }

@@ -1,15 +1,10 @@
-package com.leandro.submarine;
+package com.leandro.submarine.coordinates;
 
 import java.util.Arrays;
-import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import com.leandro.submarine.coordinates.CoordinateImpl;
-import com.leandro.submarine.coordinates.YAxisCoordinate;
 import com.leandro.submarine.directions.impl.NorthDirection;
-import com.leandro.submarine.directions.impl.SouthDirection;
-import com.leandro.submarine.interfaces.CommandConsumer;
 import com.leandro.submarine.interfaces.Coordinate;
 import com.leandro.submarine.interfaces.Direction;
 import com.leandro.submarine.interfaces.Position;
@@ -18,14 +13,14 @@ public class SpatialPosition implements Position {
 
     private static final String COORDINATES_SEPARATOR = " ";
     private Coordinate xAxis;
-    private YAxisCoordinate yAxis;
+    private Coordinate yAxis;
     private Coordinate zAxis;
     private Direction direction;
 
     public SpatialPosition() {
-        xAxis = new CoordinateImpl();
-        yAxis = new YAxisCoordinate();
-        zAxis = new CoordinateImpl();
+        xAxis = new SpatialCoordinate();
+        yAxis = new SpatialCoordinate();
+        zAxis = new SpatialCoordinate();
         direction = new NorthDirection();
     }
 
@@ -41,6 +36,7 @@ public class SpatialPosition implements Position {
         return zAxis;
     }
 
+    @Override
     public Direction getDirection() {
         return direction;
     }
@@ -54,9 +50,10 @@ public class SpatialPosition implements Position {
     public void turnRight() {
         this.direction = this.direction.turnRightDirection();
     }
-    
+
     public String toString() {
-        // takes the string value from each coordinate/direction in the stream, and join them using
+        // takes the string value from each coordinate/direction in the stream,
+        // and join them using
         // a separator
         return stream().map(p -> p.toString())
                        .collect(Collectors.joining(COORDINATES_SEPARATOR));
@@ -64,10 +61,7 @@ public class SpatialPosition implements Position {
 
     @Override
     public Stream<? extends Object> stream() {
-        return Arrays.asList(xAxis,
-                             yAxis,
-                             zAxis,
-                             direction.getValue())
+        return Arrays.asList(xAxis, yAxis, zAxis, direction.getValue())
                      .stream();
     }
 

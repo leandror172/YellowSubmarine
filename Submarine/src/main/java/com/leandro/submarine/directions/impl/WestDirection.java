@@ -26,7 +26,7 @@ public class WestDirection implements Direction {
 
     @Override
     public void moveInDirection(Position p) {
-        // TODO Auto-generated method stub
-        
+        p.getXAxis()
+         .decrementValue();
     }
 }

@@ -8,7 +8,6 @@ import com.leandro.submarine.commands.impl.TurnLeftCommand;
 import com.leandro.submarine.commands.impl.TurnRightCommand;
 import com.leandro.submarine.exception.InvalidCommandException;
 import com.leandro.submarine.interfaces.Command;
-import com.leandro.submarine.interfaces.Position;
 
 public enum CommandCatalog {
 
