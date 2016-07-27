@@ -54,4 +54,14 @@ public interface Position {
      * @return Coordinate
      */
     public Coordinate getZAxis();
+
+    /**
+     * This method executes a positive movement in the Z Axis
+     */
+    public void goUp();
+
+    /**
+     * This method executes a negative movement in the Z Axis
+     */
+    public void goDown();
 }

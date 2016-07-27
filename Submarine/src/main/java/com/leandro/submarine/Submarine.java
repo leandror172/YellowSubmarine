@@ -1,5 +1,8 @@
 package com.leandro.submarine;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,8 +30,8 @@ public class Submarine {
     }
 
     /**
-     * This method receives a list of commands to the submarine. Each command is
-     * a single character command. Possible values are
+     * This method receives a list of commands to the submarine, and converts them into Command
+     * objects. Each command is a single character command. Possible values are
      * <ul>
      * <li><b>'L'</b> - Turn Left</li>
      * <li><b>'R'</b> - Turn Right</li>
@@ -40,7 +43,7 @@ public class Submarine {
      * @param commandList
      */
     public void receiveCommands(String commandList) {
-        // System.out.println("commandList: " + commandList);
+        System.out.println("Receive the list of commands: " + commandList);
         this.commandList = commandList.chars()
                                       .mapToObj(c -> (char) c)
                                       .map(c -> characterToCommand.apply(c))
@@ -48,10 +51,10 @@ public class Submarine {
     }
 
     /**
-     * This Function maps an input Character to an output Command. If the
-     * character cannot be mapped to a command, a runtime exception is thrown
+     * This Function maps an input Character to an output Command. If the character cannot be mapped
+     * to a command, a runtime exception is thrown
      */
-    CommandReader<Character, Command> characterToCommand = c -> {
+    private CommandReader<Character, Command> characterToCommand = c -> {
         Command command = null;
         try {
             command = CommandCatalog.getCommandForValue(c);
@@ -62,8 +65,8 @@ public class Submarine {
     };
 
     /**
-     * This method takes the current list of orders and then executes them,
-     * changing the submarine's current position according to them
+     * This method takes the current list of orders and then executes them, changing the submarine's
+     * current position according to them
      */
     public void executeCommands() {
         // System.out.println("commandList: " + commandList);
@@ -80,5 +83,4 @@ public class Submarine {
     public Position getCurrentPosition() {
         return currentPosition;
     }
-
 }

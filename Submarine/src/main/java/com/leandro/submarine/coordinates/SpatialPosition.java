@@ -70,4 +70,14 @@ public class SpatialPosition implements Position {
         direction.moveInDirection(this);
     }
 
+    @Override
+    public void goUp() {
+        zAxis.incrementValue();
+    }
+
+    @Override
+    public void goDown() {
+        zAxis.decrementValue();
+    }
+
 }

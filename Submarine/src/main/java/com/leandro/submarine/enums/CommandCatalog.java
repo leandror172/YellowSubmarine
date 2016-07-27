@@ -3,9 +3,11 @@ package com.leandro.submarine.enums;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import com.leandro.submarine.commands.impl.DownCommand;
 import com.leandro.submarine.commands.impl.MoveCommand;
 import com.leandro.submarine.commands.impl.TurnLeftCommand;
 import com.leandro.submarine.commands.impl.TurnRightCommand;
+import com.leandro.submarine.commands.impl.UpCommand;
 import com.leandro.submarine.exception.InvalidCommandException;
 import com.leandro.submarine.interfaces.Command;
 
@@ -13,7 +15,9 @@ public enum CommandCatalog {
 
     TURN_RIGHT_COMMAND('R', new TurnRightCommand()),
     TURN_LEFT_COMMAND('L', new TurnLeftCommand()),
-    MOVE_COMMAND('M', new MoveCommand());
+    MOVE_COMMAND('M', new MoveCommand()),
+    UP_COMMAND('U', new UpCommand()), 
+    DOWN_COMMAND('D', new DownCommand());
 
     public Character value;
     public Command commandClass;
@@ -42,9 +46,9 @@ public enum CommandCatalog {
         Command command = commandCatalogMAP.get(value);
         if (command == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append("Comando <");
+            sb.append("Unrecognized command <");
             sb.append(String.valueOf(value));
-            sb.append("> não reconhecido pelo sistema");
+            sb.append(">");
             throw new InvalidCommandException(sb.toString());
         }
         return command;
