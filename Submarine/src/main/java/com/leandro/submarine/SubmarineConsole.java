@@ -36,6 +36,8 @@ public class SubmarineConsole {
         } catch (RuntimeException e) {
             System.out.println("There was a problem processing your commands: " + e.getCause().getMessage());
             System.out.println("Your submarine has been eaten by a grue.");
+            System.out.println("Delivering a new submarine...");
+            sub = new Submarine();
         }
         System.out.println("Do you wish to execute more commands? (Y to execute, anything else to quit)");
         input = in.readLine();

@@ -68,7 +68,6 @@ public class Submarine {
     public void executeCommands() {
         commandList.stream()
                    .forEach(c -> c.getCommandConsumer().accept(currentPosition));
-        System.out.println("currentPosition: " + currentPosition);
     }
 
     /**
