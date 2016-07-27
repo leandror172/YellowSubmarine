@@ -40,7 +40,7 @@ public class Submarine {
      * @param commandList
      */
     public void receiveCommands(String commandList) {
-        System.out.println("Receive the list of commands: " + commandList);
+        System.out.println("Received the list of commands: " + commandList);
         this.commandList = commandList.chars()
                                       .mapToObj(c -> (char) c)
                                       .map(c -> characterToCommand.apply(c))
